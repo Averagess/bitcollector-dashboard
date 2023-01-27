@@ -1,0 +1,151 @@
+body,#root {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  background-color: rgb(14, 14, 14);
+}
+
+.login-page {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.login-container {
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: none;
+  display: flex;
+  padding: 50px;
+  color:aliceblue;
+  background-color: rgb(29, 29, 29);
+  border-radius: 20%;
+  flex-direction: column;
+  margin: auto;
+  border: 1px solid red;
+  min-width: 25vw;
+  min-height: 25vw;
+}
+
+
+.login-input {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgb(36, 36, 36);
+  background-color: rgb(36, 36, 36);
+  color: aliceblue;
+}
+
+.login-button {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgb(36, 36, 36);
+  background-color: rgb(36, 36, 36);
+  color: aliceblue;
+  cursor: pointer;
+}
+.login-button:hover {
+  background-color: rgb(68, 68, 68);
+}
+.login-button:active {
+  background-color: rgb(68, 68, 68);
+  box-shadow: inset 2px 2px 5px #666;
+}
+
+.loading-animation {
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #3498db;
+  border-radius: 50%;
+  animation: spin 3s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.dashboard-container {
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: none;
+  display: flex;
+  padding: 50px;
+  color:aliceblue;
+  background-color: rgb(56, 56, 56);
+  border-radius: 20%;
+  flex-direction: column;
+  margin: auto;
+  border: 1px solid red;
+  min-width: 25vw;
+  min-height: 25vw;
+}
+
+.player-list{
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 50vh;
+  width: 15vw;
+  border-radius: 10%;
+  background-color: rgb(158, 149, 149);
+  overflow:auto
+}
+
+.player-card {
+  background-color: rgb(248, 245, 245);
+  border-radius: 10px;
+  margin: 5px;
+  padding: 10px;
+}
+
+.economy-stats {
+  display: flex;
+  font-size: 10px;
+  flex-direction: row;
+}
+
+.player-card > h1 {
+  font-size: 32px;
+  margin: 0;
+}
+
+.player-list > h1 {
+  margin-left: 5px;
+  font-size: 20px;
+  align-self: center;
+}
+
+.dashboard-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  /* background-color: rgb(44, 44, 44); */
+}
+
+.edit-field {
+  border-radius: 10px;
+  border: 1px solid rgb(36, 36, 36);
+  background-color: rgb(36, 36, 36);
+  color: aliceblue;
+  width: fit-content
+}
+.edit-field > p, input {
+  margin: 0;
+  padding: 0;
+}
+.edit-field > p {
+  font-size: 14px;
+  color:gray
+}
+.edit-field > input {
+  border-radius: 4%;
+  border: 1px solid rgb(36, 36, 36);
+}
