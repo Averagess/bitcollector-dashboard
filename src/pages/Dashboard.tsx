@@ -18,8 +18,8 @@ const Dashboard = () => {
       <div className="dashboard-container">
         <h1>What do you want to do?</h1>
         <div>
-          <button onClick={() => Navigate("/player-editor")} className="login-button">edit player</button>
-          <button className="login-button">show all players</button>
+          <button onClick={() => Navigate("/dashboard/player-editor")} className="login-button">edit player</button>
+          <button onClick={() => Navigate("/dashboard/all-players")}className="login-button">show all players</button>
         </div>
       </div>
       <h1>{token}</h1>
