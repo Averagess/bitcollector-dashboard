@@ -21,7 +21,7 @@ export const getPlayerById = async (id: string, token: string) => {
   }
 
 
-  const { data } = await axios.post(`${API_URL}/updatePlayer`, body, { headers })
+  const { data } = await axios.post<Player>(`${API_URL}/updatePlayer`, body, { headers })
   return data
 }
 
