@@ -1,15 +1,38 @@
+import { MouseEventHandler } from "react";
+import readableNumber from "../helpers/readableNumber";
 import { Player } from "../types";
 
 
-const PlayerCard = ({ player }: { player: Player }) => {
+interface Props {
+  player: Player;
+  onClick : (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+}
+
+const PlayerCard = ({ player, onClick }: Props) => {
+
+  const createdAt = new Date(player.createdAt).toLocaleString()
+  const updatedAt = new Date(player.updatedAt).toLocaleString()
+  const readableBalance = readableNumber(player.balance)
+  const readableCPS = readableNumber(player.cps.toString())
+
+  const playerName = player.discordDisplayName.length > 14 ? player.discordDisplayName.slice(0, 14) + "..." : player.discordDisplayName
+
+
   return (
-    <div className="player-card">
-      <h1>{player.discordDisplayName}</h1>
+    <div className="player-card" id={player.discordId} onClick={(e) => onClick(e)}>
+      <h1>{playerName}</h1>
       <div className="economy-stats">
-        <h2>balance: {player.balance}</h2>
-        <h2>CPS: {player.cps}</h2>
+        <div className="stat-container">
+          <h2>balance</h2>
+          <b>{readableBalance}</b>
+        </div>
+        <div className="stat-container">
+          <h2>CPS</h2>
+          <b>{readableCPS}</b>
+        </div>
       </div>
-      <h2>Created: {player.createdAt}</h2>
+      <p style={{padding: 0, margin: 5, color: "gray"}}>Created <b>{createdAt}</b></p>
+      <p style={{padding: 0, margin: 0, color: "gray"}}>Updated <b>{updatedAt}</b></p>
     </div>
   );
 };
