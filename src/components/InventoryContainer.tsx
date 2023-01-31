@@ -21,7 +21,7 @@ const InventoryContainer = ({ inventory }: Props) => {
   const cpsSum = inventory.reduce((acc, item) => acc + item.cps, 0);
 
   return (
-    <table style={{ border: "2px solid grey", width: "100%" }}>
+    <table className="inventory-table">
       <thead>
         <tr>
           <td>Item</td>
@@ -30,7 +30,9 @@ const InventoryContainer = ({ inventory }: Props) => {
           <td>CPS</td>
         </tr>
       </thead>
+      <tbody>
       {Rows}
+      </tbody>
       <tfoot>
         <tr>
           <td>Total</td>
