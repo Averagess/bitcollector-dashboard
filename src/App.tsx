@@ -8,6 +8,7 @@ import { useState } from 'react'
 import AuthContext from './contexts/AuthContext'
 import AllPlayers from './pages/AllPlayers'
 import PlayerProfilePage from './pages/PlayerProfile'
+import NotFoundPage from './pages/404'
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/dashboard/all-players/:id",
     element: <PlayerProfilePage />
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />
   }
 ])
 
