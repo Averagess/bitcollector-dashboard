@@ -7,6 +7,7 @@ import { Player } from "../types";
 import { getAllPlayers } from "../services/playerService";
 import PlayerCard from "../components/PlayerCard";
 import GenericLoadingPage from "../components/GenericLoadingPage";
+import NavBar from "../components/NavBar";
 
 const AllPlayers = () => {
   const { token } = useContext(AuthContext);
@@ -46,6 +47,7 @@ const AllPlayers = () => {
 
   return (
     <div className="dashboard-page">
+      <NavBar />
       <div
         style={{
           width: "75%",
