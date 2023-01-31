@@ -54,6 +54,7 @@ const AllPlayers = () => {
           height: "75%",
           borderRadius: "5%",
           gridTemplateColumns: "repeat(3, 1fr)",
+          gridTemplateRows: "repeat(3, .1fr)",
           display: "grid",
           overflow: "auto",
         }}
