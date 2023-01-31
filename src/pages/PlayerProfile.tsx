@@ -38,22 +38,23 @@ const PlayerProfile = () => {
       <div
         className="dashboard-container"
         style={{
-          width: "80vw",
+          width: "70vw",
           height: "60vh",
           borderRadius: 25,
-          overflow: "auto",
+          overflowY: "auto",
+          overflowX: "hidden"
         }}
       >
         <h1 style={{ margin: 0 }}>{player.discordDisplayName}</h1>
         <h3 style={{ margin: 0 }}>{player.discordId}</h3>
 
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <div style={{ margin: 15, width: "100%" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap" }}>
+          <div style={{ margin: 15, width: "45%" }}>
             <h1 style={{ textDecoration: "underline" }}>Stats</h1>
             <StatsCotainer player={player} />
           </div>
 
-          <div style={{ margin: 15, width: "100%" }}>
+          <div style={{ margin: 15, width: "45%" }}>
             <h1 style={{ textDecoration: "underline" }}>Inventory</h1>
             <InventoryContainer inventory={player.inventory} />
           </div>
