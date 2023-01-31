@@ -167,7 +167,13 @@ body,#root {
   border: 1px solid rgb(36, 36, 36);
 }
 
-tfoot > tr > td {
+.inventory-table {
+  width: 50%;
+}
+
+.inventory-table > tfoot > tr {
+  outline: thin solid #ffffff;
+  background-color:rgb(14, 14, 14);
   font-size: larger;
   font-weight: bold;
 }
@@ -177,7 +183,7 @@ tfoot > tr > td {
   width: 50%;
 }
 
-.stats-table > tbody > tr {
+.stats-table, .inventory-table > tbody,thead > tr {
   background-color: #00000042;
   outline: thin solid #ffffff;
 }
