@@ -17,7 +17,6 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard-page">
-      <h1>Dashboard</h1>
       <div className="dashboard-container">
         <h1>What do you want to do?</h1>
         <div>
@@ -37,7 +36,6 @@ const Dashboard = () => {
           </button>
         </div>
       </div>
-      <h1>{token}</h1>
     </div>
   );
 };
