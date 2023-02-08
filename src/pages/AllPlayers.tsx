@@ -49,16 +49,7 @@ const AllPlayers = () => {
     <div className="dashboard-page">
       <NavBar />
       <div
-        style={{
-          width: "75%",
-          height: "75%",
-          borderRadius: "5%",
-          gridTemplateColumns: "repeat(3, 1fr)",
-          gridTemplateRows: "repeat(3, .1fr)",
-          display: "grid",
-          overflow: "auto",
-        }}
-        className="dashboard-container"
+        className="player-list"
       >
         {Card}
       </div>
