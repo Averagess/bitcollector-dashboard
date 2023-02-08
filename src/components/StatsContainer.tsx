@@ -15,9 +15,7 @@ const StatsContainer = ({ player }: Props) => {
     : "Never";
 
   const blacklistedString = player.blacklisted
-    ? `reason: ${player.blacklisted.reason} date: ${new Date(
-        player.blacklisted.started
-      ).toLocaleString()}`
+    ? "yes"
     : "Not blacklisted";
 
   const createdAt = new Date(player.createdAt).toLocaleString();
@@ -54,6 +52,18 @@ const StatsContainer = ({ player }: Props) => {
           <td>Blacklisted</td>
           <td>{blacklistedString}</td>
         </tr>
+        { player.blacklisted &&
+        <>
+          <tr>
+            <td>Blacklisted reason</td>
+            <td>{player.blacklisted.reason}</td>
+          </tr>
+          <tr>
+            <td>Blacklisted date</td>
+            <td>{new Date(player.blacklisted.started).toLocaleString()}</td>
+          </tr>
+        </>
+        }
         <tr>
           <td>Created</td>
           <td>{createdAt}</td>
