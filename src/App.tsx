@@ -3,9 +3,12 @@ import { createBrowserRouter, RouterProvider, useNavigate } from 'react-router-d
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import PlayerEditor from './pages/PlayerEditor'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 import AuthContext from './contexts/AuthContext'
+import AllPlayers from './pages/AllPlayers'
+import PlayerProfilePage from './pages/PlayerProfile'
+import NotFoundPage from './pages/404'
 
 const router = createBrowserRouter([
   {
@@ -17,8 +20,20 @@ const router = createBrowserRouter([
     element: <Dashboard />
   },
   {
-    path: "/player-editor",
+    path: "/dashboard/player-editor/",
     element: <PlayerEditor />
+  },
+  {
+    path: "/dashboard/all-players",
+    element: <AllPlayers />
+  },
+  {
+    path: "/dashboard/all-players/:id",
+    element: <PlayerProfilePage />
+  },
+  {
+    path: "*",
+    element: <NotFoundPage />
   }
 ])
 

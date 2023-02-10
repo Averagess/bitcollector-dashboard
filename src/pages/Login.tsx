@@ -87,6 +87,7 @@ const Login = () => {
             className="login-input"
             placeholder="password"
             value={password}
+            type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
           <button className="login-button" onClick={handleLogin}>
