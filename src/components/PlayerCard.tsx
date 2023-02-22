@@ -22,12 +22,12 @@ const PlayerCard = ({ player, onClick }: Props) => {
       <h1 className="font-bold text-xl">{playerName}</h1>
       <div className="flex text-m font-light">
         <div className="border-2 border-black m-1 p-1 rounded-2xl">
-          <h2>balance</h2>
-          <b>{readableBalance}</b>
+          <h2 className="underline font-semibold">Balance</h2>
+          <b className="text-sm">{readableBalance}</b>
         </div>
         <div className="border-2 border-black m-1 p-1 rounded-2xl">
-          <h2>CPS</h2>
-          <b>{readableCPS}</b>
+          <h2 className="underline font-semibold">CPS</h2>
+          <b className="text-sm">{readableCPS}</b>
         </div>
       </div>
       
