@@ -10,7 +10,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="font-arial h-fit w-full bg-gray-600 flex content-center gap-6 mb-2">
+    <div className="font-arial h-fit w-full bg-zinc-900 flex content-center gap-6 mb-2">
       <GenericButton name="/dashboard" onClick={handleClick}>
         Main menu
       </GenericButton>
