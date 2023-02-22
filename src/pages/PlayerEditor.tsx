@@ -1,10 +1,17 @@
 import { AxiosError } from "axios";
 import { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import NavBar from "../components/NavBar";
-import PlayerProfile from "../components/PlayerProfile";
+
 import AuthContext from "../contexts/AuthContext";
 import { getPlayerById, updatePlayer } from "../services/playerService";
+
+import {
+  GenericButton,
+  NavBar,
+  PageContainer,
+  PlayerProfileEditor,
+  MainContent,
+} from "../components";
 
 import { Player } from "../types";
 
@@ -56,47 +63,42 @@ const PlayerEditor = () => {
   };
 
   return (
-    <div className="dashboard-page">
+    <PageContainer>
       <NavBar />
-      <div
-        className="dashboard-container"
-        style={{ position: "relative", display: "flex", alignItems: "center" }}
-      >
-        <h1>Player Editor</h1>
+      <MainContent classes="items-center my-auto">
+        <h1 className="font-arial text-4xl font-extrabold mb-5">
+          Player Editor
+        </h1>
         {notification && <p style={{ color: "green" }}>{notification}</p>}
         <p style={{ color: "red" }}>{error}</p>
 
         {!player && (
           <form onSubmit={handleSubmit}>
             <input
+              className="p-3 rounded-l-xl border-2 border-gray-900 bg-neutral-800"
               onChange={(e) => setSearch(e.target.value)}
               value={search}
               placeholder="player id"
-              className="login-input"
-              style={{marginRight: 0, borderRadius: "5px 0 0 5px", borderColor: "#9ab2b7"}}
             />
-            <button className="login-button" style={{marginLeft: 0, borderRadius: "0 5px 5px 0", borderColor: "#9ab2b7"}}>search</button>
+            <button className="p-3 rounded-r-xl border-y-2 border-r-2 border-gray-900 bg-neutral-800 hover:bg-neutral-700 active:shadow-button">
+              search
+            </button>
           </form>
         )}
-        {player && (
-          <PlayerProfile
+        {player ? (
+          <PlayerProfileEditor
             cancel={cancel}
             savePlayer={savePlayer}
             setPlayer={setPlayer}
             player={player}
           />
-        )}
-        {!player && (
-          <button
-            onClick={() => Navigate("/dashboard")}
-            className="login-button"
-            style={{ position: "absolute", bottom: 0 }}
-          >
+        ) : (
+          <GenericButton onClick={() => Navigate("/dashboard")}>
             back to dashboard
-          </button>
+          </GenericButton>
         )}
-      </div>
-    </div>
+      </MainContent>
+    </PageContainer>
   );
 };
 

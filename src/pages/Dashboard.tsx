@@ -1,6 +1,8 @@
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
+import { PageContainer, MainContent, GenericButton } from "../components";
+
 import AuthContext from "../contexts/AuthContext";
 
 const Dashboard = () => {
@@ -16,27 +18,21 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="dashboard-page">
-      <div className="dashboard-container">
-        <h1>What do you want to do?</h1>
+    <PageContainer>
+      <MainContent classes="items-center w-1/2 my-auto">
+        <h1 className="font-arial text-xl mb-3 underline">
+          What would you like to do?
+        </h1>
         <div>
-          <button
-            name="/dashboard/all-players"
-            onClick={handleClick}
-            className="login-button"
-          >
+          <GenericButton name="/dashboard/all-players" onClick={handleClick}>
             show all players
-          </button>
-          <button
-            name="/dashboard/player-editor"
-            onClick={handleClick}
-            className="login-button"
-          >
+          </GenericButton>
+          <GenericButton name="/dashboard/player-editor" onClick={handleClick}>
             edit player
-          </button>
+          </GenericButton>
         </div>
-      </div>
-    </div>
+      </MainContent>
+    </PageContainer>
   );
 };
 

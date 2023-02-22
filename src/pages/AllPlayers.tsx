@@ -1,13 +1,12 @@
 import { AxiosError } from "axios";
 import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+
 import AuthContext from "../contexts/AuthContext";
 import { Player } from "../types";
-
 import { getAllPlayers } from "../services/playerService";
-import PlayerCard from "../components/PlayerCard";
-import GenericLoadingPage from "../components/GenericLoadingPage";
-import NavBar from "../components/NavBar";
+
+import { GenericLoadingPage, PlayerCard, PageContainer, NavBar } from "../components";
 
 const AllPlayers = () => {
   const { token } = useContext(AuthContext);
@@ -37,23 +36,21 @@ const AllPlayers = () => {
   if (loading || !players) return <GenericLoadingPage />;
 
   const handleClick = (e: React.MouseEvent) => {
-    const targetID = e.currentTarget.id
-    Navigate(`/dashboard/all-players/${targetID}`)
-  }
+    const targetID = e.currentTarget.id;
+    Navigate(`/dashboard/all-players/${targetID}`);
+  };
 
-  const Card = players.map((player, index) => {
+  const CardList = players.map((player, index) => {
     return <PlayerCard key={index} player={player} onClick={handleClick} />;
   });
 
   return (
-    <div className="dashboard-page">
+    <PageContainer>
       <NavBar />
-      <div
-        className="player-list"
-      >
-        {Card}
+      <div className="font-arial overflow-none grid p-12 text-white bg-zinc-800 rounded-xl m-auto border-2 border-red-500 min-w-fit min-h-fit grid-cols-1 overflow-y-scroll overflow-x-hidden gap-2 md:grid-cols-2 xl:grid-cols-3">
+        {CardList}
       </div>
-    </div>
+    </PageContainer>
   );
 };
 
