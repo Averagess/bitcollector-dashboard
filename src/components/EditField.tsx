@@ -11,7 +11,7 @@ const EditField = ({ value, onChange, placeholder, title }: Props) => {
     <div className="mt-2 bg-gray-900 w-fit rounded-lg">
       <p className="ml-1 font-bold">{title}</p>
       <input
-        className="pl-1 bg-gray-800 "
+        className="pl-1 bg-gray-800"
         type={type}
         name={title}
         value={value}

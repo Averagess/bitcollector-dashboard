@@ -1,5 +1,5 @@
 import { AxiosError } from "axios";
-import { useState, useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import AuthContext from "../contexts/AuthContext";
@@ -7,10 +7,10 @@ import { getPlayerById, updatePlayer } from "../services/playerService";
 
 import {
   GenericButton,
+  MainContent,
   NavBar,
   PageContainer,
   PlayerProfileEditor,
-  MainContent,
 } from "../components";
 
 import { Player } from "../types";

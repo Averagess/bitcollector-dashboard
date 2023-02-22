@@ -6,17 +6,14 @@ interface Props {
 }
 
 const StatsContainer = ({ player }: Props) => {
-
-  const readableBalance = readableNumber(player.balance)
-  const readableCps = readableNumber(player.cps.toString())
+  const readableBalance = readableNumber(player.balance);
+  const readableCps = readableNumber(player.cps.toString());
 
   const lastDaily = player.lastDaily
     ? new Date(player.lastDaily).toLocaleString()
     : "Never";
 
-  const blacklistedString = player.blacklisted
-    ? "yes"
-    : "Not blacklisted";
+  const blacklistedString = player.blacklisted ? "yes" : "Not blacklisted";
 
   const createdAt = new Date(player.createdAt).toLocaleString();
   const updatedAt = new Date(player.updatedAt).toLocaleString();
@@ -52,18 +49,18 @@ const StatsContainer = ({ player }: Props) => {
           <td>Blacklisted</td>
           <td>{blacklistedString}</td>
         </tr>
-        { player.blacklisted &&
-        <>
-          <tr>
-            <td>Blacklisted reason</td>
-            <td>{player.blacklisted.reason}</td>
-          </tr>
-          <tr>
-            <td>Blacklisted date</td>
-            <td>{new Date(player.blacklisted.started).toLocaleString()}</td>
-          </tr>
-        </>
-        }
+        {player.blacklisted && (
+          <>
+            <tr>
+              <td>Blacklisted reason</td>
+              <td>{player.blacklisted.reason}</td>
+            </tr>
+            <tr>
+              <td>Blacklisted date</td>
+              <td>{new Date(player.blacklisted.started).toLocaleString()}</td>
+            </tr>
+          </>
+        )}
         <tr>
           <td>Created</td>
           <td>{createdAt}</td>

@@ -1,12 +1,17 @@
 import { AxiosError } from "axios";
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import AuthContext from "../contexts/AuthContext";
-import { Player } from "../types";
 import { getAllPlayers } from "../services/playerService";
+import { Player } from "../types";
 
-import { GenericLoadingPage, PlayerCard, PageContainer, NavBar } from "../components";
+import {
+  GenericLoadingPage,
+  NavBar,
+  PageContainer,
+  PlayerCard,
+} from "../components";
 
 const AllPlayers = () => {
   const { token } = useContext(AuthContext);

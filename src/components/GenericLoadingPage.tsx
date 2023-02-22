@@ -11,5 +11,4 @@ const GenericLoadingPage = () => {
   );
 };
 
-
-export default GenericLoadingPage
+export default GenericLoadingPage;

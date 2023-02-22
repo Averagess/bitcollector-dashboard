@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { PageContainer, MainContent, GenericButton } from "../components";
+import { GenericButton, MainContent, PageContainer } from "../components";
 
 import AuthContext from "../contexts/AuthContext";
 
