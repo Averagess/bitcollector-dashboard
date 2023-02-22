@@ -19,7 +19,7 @@ const GenericButton = ({
       disabled={disabled}
       type={type}
       onClick={onClick}
-      className="m-3 p-3 rounded-xl border-2 text-white border-gray-900 bg-neutral-800 hover:bg-neutral-700 active:shadow-button"
+      className="m-3 p-3 w-full max-w-xl rounded-xl border-2 text-white border-gray-900 bg-neutral-800 hover:bg-neutral-700 active:shadow-button"
     >
       {children}
     </button>
