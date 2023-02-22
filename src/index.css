@@ -17,3 +17,12 @@ body,
   margin: 0;
   background-color: rgb(14, 14, 14);
 }
+
+.generic-table > thead > tr > td,
+.generic-table > tbody > tr > td,
+.generic-table > tfoot > tr > td {
+  font-weight: 700;
+  border: 1px solid rgb(14 165 233);
+  background-color: rgb(15 23 42);
+  padding: 0.2rem;
+}
