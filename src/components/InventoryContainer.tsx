@@ -5,19 +5,22 @@ interface Props {
 }
 
 const InventoryContainer = ({ inventory }: Props) => {
+  if(!inventory.length) return (
+    <p>Player has no items..</p>
+  )
   const Rows = inventory.map((item) => {
     return (
       <tr>
-        <td className="font-bold p-2 outline-1 outline outline-sky-500 bg-slate-900">
+        <td>
           {item.name}
         </td>
-        <td className="font-bold p-2 outline-1 outline outline-sky-500 bg-slate-900">
+        <td>
           {item.amount}
         </td>
-        <td className="font-bold p-2 outline-1 outline outline-sky-500 bg-slate-900">
+        <td>
           {item.price}
         </td>
-        <td className="font-bold p-2 outline-1 outline outline-sky-500 bg-slate-900">
+        <td>
           {Math.round(item.cps * 100) / 100}
         </td>
       </tr>
@@ -30,19 +33,19 @@ const InventoryContainer = ({ inventory }: Props) => {
     Math.round(inventory.reduce((acc, item) => acc + item.cps, 0) * 100) / 100;
 
   return (
-    <table className="border-collapse">
+    <table className="generic-table table-auto border-collapse">
       <thead>
         <tr>
-          <td className="font-bold p-2 outline-1 outline outline-sky-500 bg-slate-900">
+          <td>
             Item
           </td>
-          <td className="font-bold p-2 outline-1 outline outline-sky-500 bg-slate-900">
+          <td>
             Amount
           </td>
-          <td className="font-bold p-2 outline-1 outline outline-sky-500 bg-slate-900">
+          <td>
             Price
           </td>
-          <td className="font-bold p-2 outline-1 outline outline-sky-500 bg-slate-900">
+          <td>
             CPS
           </td>
         </tr>
@@ -50,16 +53,16 @@ const InventoryContainer = ({ inventory }: Props) => {
       <tbody>{Rows}</tbody>
       <tfoot>
         <tr>
-          <td className="font-bold p-2 outline-1 outline outline-sky-500 bg-slate-900">
+          <td>
             Total
           </td>
-          <td className="font-bold p-2 outline-1 outline outline-sky-500 bg-slate-900">
+          <td>
             {itemSum}
           </td>
-          <td className="font-bold p-2 outline-1 outline outline-sky-500 bg-slate-900">
+          <td>
             {priceSum}
           </td>
-          <td className="font-bold p-2 outline-1 outline outline-sky-500 bg-slate-900">
+          <td>
             {cpsSum}
           </td>
         </tr>
