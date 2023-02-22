@@ -1,11 +1,18 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import GenericLoadingPage from "../components/GenericLoadingPage";
-import StatsCotainer from "../components/StatsContainer";
-import InventoryContainer from "../components/InventoryContainer";
+
 import AuthContext from "../contexts/AuthContext";
 import { getPlayerById } from "../services/playerService";
 import { Player } from "../types";
+
+import {
+  PageContainer,
+  MainContent,
+  GenericButton,
+  InventoryContainer,
+  StatsContainer,
+  GenericLoadingPage,
+} from "../components";
 
 const PlayerProfile = () => {
   const [player, setPlayer] = useState<Player | null>(null);
@@ -34,34 +41,27 @@ const PlayerProfile = () => {
   if (loading || !player) return <GenericLoadingPage />;
 
   return (
-    <div className="dashboard-page">
-      <div
-        className="dashboard-container"
-        style={{
-          width: "70vw",
-          height: "60vh",
-          borderRadius: 25,
-          overflowY: "auto",
-          overflowX: "hidden"
-        }}
-      >
-        <h1 style={{ margin: 0 }}>{player.discordDisplayName}</h1>
-        <h3 style={{ margin: 0 }}>{player.discordId}</h3>
+    <PageContainer>
+      <MainContent classes="overflow-x-hidden overflow-y-auto my-auto">
+        <h1 className="text-4xl font-bold">{player.discordDisplayName}</h1>
+        <h3 className="text-2xl font-bold">{player.discordId}</h3>
 
-        <div style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap" }}>
-          <div style={{ margin: 15, width: "45%" }}>
+        <div className="flex justify-between flex-wrap">
+          <div className="m-4 w-1/2">
             <h1 style={{ textDecoration: "underline" }}>Stats</h1>
-            <StatsCotainer player={player} />
+            <StatsContainer player={player} />
           </div>
 
-          <div style={{ margin: 15, width: "45%" }}>
-            <h1 style={{ textDecoration: "underline" }}>Inventory</h1>
+          <div className="m-4 w-1/2">
+            <h1 className="underline">Inventory</h1>
             <InventoryContainer inventory={player.inventory} />
           </div>
         </div>
-        <button className="login-button" onClick={() => Navigate("/dashboard/all-players")}>Back to player list</button>
-      </div>
-    </div>
+        <GenericButton onClick={() => Navigate("/dashboard/all-players")}>
+          Back to player list
+        </GenericButton>
+      </MainContent>
+    </PageContainer>
   );
 };
 

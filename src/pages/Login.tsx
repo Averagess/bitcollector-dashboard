@@ -1,10 +1,17 @@
 import { AxiosError } from "axios";
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { login } from "../services/loginService";
-
 import AuthContext from "../contexts/AuthContext";
+
+import {
+  PageContainer,
+  MainContent,
+  GenericInput,
+  GenericButton,
+  NavBar,
+} from "../components";
 
 const Login = () => {
   const [username, setUsername] = useState("");
@@ -17,22 +24,21 @@ const Login = () => {
 
   useEffect(() => {
     if (token.length > 0) Navigate("/dashboard");
-  })
+  });
 
-  if (loading) {
-    return (
-      <div className="login-page">
-        <div className="login-container">
-          <div className="loading-animation"></div>
-        </div>
-      </div>
-    );
-  }
-
-
+  let timeoutID: number;
   const handleLogin = async (e: any) => {
     e.preventDefault();
-    if(username.length < 5 || password.length < 8) return
+    if (timeoutID) {
+      clearTimeout(timeoutID);
+      setError(null);
+    }
+    if (username.length < 5 || password.length < 8) {
+      timeoutID = setTimeout(() => setError(null), 3000);
+      return setError(
+        "username must be at least 5 characters and password must be at least 8 characters"
+      );
+    }
     setLoading(true);
 
     try {
@@ -44,58 +50,52 @@ const Login = () => {
     } catch (error) {
       console.log(error);
       if (error instanceof AxiosError) {
-        if (!error.response) setError("no response from server :(");
-        else if( error.response.status === 401) setError("wrong username or password :(")
-        else setError(error.response.data.error);
+        if (!error.response) {
+          setError("no response from server :(");
+        } else if (error.response.status === 401) {
+          setError("wrong username or password :(");
+        } else setError(error.response.data.error);
       } else setError("something went wrong :(");
       setLoading(false);
+      setTimeout(() => setError(null), 5000);
     }
   };
 
-  const scalingFontSize = (text: string) => {
-    return Math.floor((400 / text.length) * 1.5) + "px";
-  };
-
   return (
-    <div className="login-page">
-      <div className="login-container">
-        <h1>{token}</h1>
-        {error ? (
-          <h1
-            style={{
-              fontSize: scalingFontSize(error),
-              alignSelf: "center",
-              color: "red",
-            }}
-          >
+    <PageContainer>
+      <NavBar />
+      <MainContent>
+        {loading ? (
+          <h1 className="text-sky-400 self-center text-xl animate-pulse">
+            Loading....
+          </h1>
+        ) : error ? (
+          <h1 className="text-red-500 self-center animate-pulse text-xl text-center">
             {error}
           </h1>
         ) : (
-          <h1 style={{ alignSelf: "center" }}>Welcome back</h1>
+          <h1 className="self-center text-xl">Welcome back</h1>
         )}
-        <form
-          style={{ display: "flex", flexDirection: "column" }}
-          onSubmit={handleLogin}
-        >
-          <input
-            className="login-input"
+        <form className="flex flex-col p-12" onSubmit={handleLogin}>
+          <GenericInput
+            disabled={loading}
             placeholder="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-          <input
-            className="login-input"
+          <GenericInput
+            disabled={loading}
             placeholder="password"
             value={password}
             type="password"
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className="login-button" onClick={handleLogin}>
+          <GenericButton disabled={loading} onClick={(e) => handleLogin(e)}>
             login
-          </button>
+          </GenericButton>
         </form>
-      </div>
-    </div>
+      </MainContent>
+    </PageContainer>
   );
 };
 

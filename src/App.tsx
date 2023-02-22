@@ -1,14 +1,9 @@
-import { createBrowserRouter, RouterProvider, useNavigate } from 'react-router-dom'
-
-import Login from './pages/Login'
-import Dashboard from './pages/Dashboard'
-import PlayerEditor from './pages/PlayerEditor'
 import { useState } from 'react'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
+
+import { Login, Dashboard, PlayerEditor, AllPlayers, PlayerProfile, NotFoundPage } from './pages'
 import AuthContext from './contexts/AuthContext'
-import AllPlayers from './pages/AllPlayers'
-import PlayerProfilePage from './pages/PlayerProfile'
-import NotFoundPage from './pages/404'
 
 const router = createBrowserRouter([
   {
@@ -29,7 +24,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard/all-players/:id",
-    element: <PlayerProfilePage />
+    element: <PlayerProfile />
   },
   {
     path: "*",

@@ -1,4 +1,3 @@
-import { MouseEventHandler } from "react";
 import readableNumber from "../helpers/readableNumber";
 import { Player } from "../types";
 
@@ -19,20 +18,21 @@ const PlayerCard = ({ player, onClick }: Props) => {
 
 
   return (
-    <div className="player-card" id={player.discordId} onClick={(e) => onClick(e)}>
-      <h1>{playerName}</h1>
-      <div className="economy-stats">
-        <div className="stat-container">
+    <div className="flex flex-col bg-white rounded-2xl p-3 text-black font-arial items-center cursor-pointer min-h-fit" id={player.discordId} onClick={(e) => onClick(e)}>
+      <h1 className="font-bold text-xl">{playerName}</h1>
+      <div className="flex text-m font-light">
+        <div className="border-2 border-black m-1 p-1 rounded-2xl">
           <h2>balance</h2>
           <b>{readableBalance}</b>
         </div>
-        <div className="stat-container">
+        <div className="border-2 border-black m-1 p-1 rounded-2xl">
           <h2>CPS</h2>
           <b>{readableCPS}</b>
         </div>
       </div>
-      <p style={{padding: 0, margin: 5, color: "gray"}}>Created <b>{createdAt}</b></p>
-      <p style={{padding: 0, margin: 0, color: "gray"}}>Updated <b>{updatedAt}</b></p>
+      
+      <p className="text-gray-500">Created <b>{createdAt}</b></p>
+      <p className="text-gray-500">Updated <b>{updatedAt}</b></p>
     </div>
   );
 };
