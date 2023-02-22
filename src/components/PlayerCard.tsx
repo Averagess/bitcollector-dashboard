@@ -21,11 +21,11 @@ const PlayerCard = ({ player, onClick }: Props) => {
     <div className="flex flex-col bg-white rounded-2xl p-3 text-black font-arial items-center cursor-pointer min-h-fit" id={player.discordId} onClick={(e) => onClick(e)}>
       <h1 className="font-bold text-xl">{playerName}</h1>
       <div className="flex text-m font-light">
-        <div className="border-2 border-black m-1 p-1 rounded-2xl">
+        <div className="border-2 border-black m-1 p-1 rounded-2xl min-w-[4rem] h-16 max-w-fit">
           <h2 className="underline font-semibold">Balance</h2>
           <b className="text-sm">{readableBalance}</b>
         </div>
-        <div className="border-2 border-black m-1 p-1 rounded-2xl">
+        <div className="border-2 border-black m-1 p-1 rounded-2xl min-w-[4rem] h-16 max-w-fit">
           <h2 className="underline font-semibold">CPS</h2>
           <b className="text-sm">{readableCPS}</b>
         </div>
