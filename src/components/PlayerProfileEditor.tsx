@@ -1,5 +1,6 @@
 import { Player } from "../types";
 import EditField from "./EditField";
+import GenericButton from "./GenericButton";
 
 interface Props {
   player: Player;
@@ -8,7 +9,7 @@ interface Props {
   cancel: () => void;
 }
 
-const PlayerProfile = ({ player, setPlayer, savePlayer, cancel }: Props) => {
+const PlayerProfileEditor = ({ player, setPlayer, savePlayer, cancel }: Props) => {
   const handleChange = (e: any) => {
     console.log("change");
     console.log(e);
@@ -35,8 +36,8 @@ const PlayerProfile = ({ player, setPlayer, savePlayer, cancel }: Props) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1>{player.discordDisplayName}</h1>
-      <h1>{player.discordId}</h1>
+      <h1 className="font-arial text-2xl font-bold">{player.discordDisplayName}</h1>
+      <h1 className="font-arial text-2xl font-bold">{player.discordId}</h1>
       <EditField
         value={player.balance}
         onChange={handleChange}
@@ -80,12 +81,12 @@ const PlayerProfile = ({ player, setPlayer, savePlayer, cancel }: Props) => {
         <p>last updated {new Date(player.updatedAt).toLocaleString()} </p>
         <p>created {new Date(player.createdAt).toLocaleString()}</p>
       </div>
-      <button>save</button>
-      <button type="button" onClick={cancel}>
+      <GenericButton>save</GenericButton>
+      <GenericButton type="button" onClick={cancel}>
         cancel
-      </button>
+      </GenericButton>
     </form>
   );
 };
 
-export default PlayerProfile;
+export default PlayerProfileEditor;
