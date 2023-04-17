@@ -20,3 +20,12 @@ export interface Player {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface Analytic {
+  _id: number;
+  guildAmount: number;
+  userAmount: number;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}
