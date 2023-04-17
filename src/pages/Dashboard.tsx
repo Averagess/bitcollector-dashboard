@@ -30,6 +30,9 @@ const Dashboard = () => {
           <GenericButton name="/dashboard/player-editor" onClick={handleClick}>
             edit player
           </GenericButton>
+          <GenericButton name="/dashboard/analytics" onClick={handleClick}>
+            show analytics
+          </GenericButton>
         </div>
       </MainContent>
     </PageContainer>
