@@ -19,7 +19,7 @@ const PlayerCard = ({ player, onClick }: Props) => {
 
   return (
     <div
-      className="flex min-h-fit cursor-pointer flex-col items-center rounded-2xl bg-white bg-gradient-to-br from-white to-gray-300 p-3 font-arial text-black"
+      className="flex h-fit cursor-pointer flex-col items-center rounded-2xl bg-white bg-gradient-to-br from-white to-gray-300 p-3 font-arial text-black"
       id={player.discordId}
       onClick={(e) => onClick(e)}
     >
