@@ -20,6 +20,9 @@ const NavBar = () => {
       <GenericButton name="/dashboard/player-editor" onClick={handleClick}>
         Player editor
       </GenericButton>
+      <GenericButton name="/dashboard/analytics" onClick={handleClick}>
+        Analytics
+      </GenericButton>
     </div>
   );
 };
