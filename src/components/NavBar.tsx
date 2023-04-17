@@ -10,7 +10,7 @@ const NavBar = () => {
   };
 
   return (
-    <div className="font-arial h-fit w-full bg-gray-600 flex content-center gap-6 mb-2">
+    <div className="font-arial h-fit w-full bg-zinc-900 flex content-center gap-6 mb-2">
       <GenericButton name="/dashboard" onClick={handleClick}>
         Main menu
       </GenericButton>
@@ -19,6 +19,9 @@ const NavBar = () => {
       </GenericButton>
       <GenericButton name="/dashboard/player-editor" onClick={handleClick}>
         Player editor
+      </GenericButton>
+      <GenericButton name="/dashboard/analytics" onClick={handleClick}>
+        Analytics
       </GenericButton>
     </div>
   );

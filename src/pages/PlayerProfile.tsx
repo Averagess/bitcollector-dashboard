@@ -6,12 +6,12 @@ import { getPlayerById } from "../services/playerService";
 import { Player } from "../types";
 
 import {
-  PageContainer,
-  MainContent,
   GenericButton,
-  InventoryContainer,
-  StatsContainer,
   GenericLoadingPage,
+  InventoryContainer,
+  MainContent,
+  PageContainer,
+  StatsContainer,
 } from "../components";
 
 const PlayerProfile = () => {

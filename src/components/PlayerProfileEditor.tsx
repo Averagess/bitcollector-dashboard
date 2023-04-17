@@ -9,7 +9,12 @@ interface Props {
   cancel: () => void;
 }
 
-const PlayerProfileEditor = ({ player, setPlayer, savePlayer, cancel }: Props) => {
+const PlayerProfileEditor = ({
+  player,
+  setPlayer,
+  savePlayer,
+  cancel,
+}: Props) => {
   const handleChange = (e: any) => {
     console.log("change");
     console.log(e);
@@ -23,8 +28,11 @@ const PlayerProfileEditor = ({ player, setPlayer, savePlayer, cancel }: Props) =
         setPlayer((old: any) => ({ ...old, blacklisted: null }));
       }
       return;
-    } else if(e.target.name === "blacklisted.reason") {
-      return setPlayer((old: any) => ({ ...old, blacklisted: { ...old.blacklisted, reason: e.target.value } }));
+    } else if (e.target.name === "blacklisted.reason") {
+      return setPlayer((old: any) => ({
+        ...old,
+        blacklisted: { ...old.blacklisted, reason: e.target.value },
+      }));
     }
     setPlayer((old: any) => ({ ...old, [e.target.name]: e.target.value }));
   };
@@ -36,7 +44,9 @@ const PlayerProfileEditor = ({ player, setPlayer, savePlayer, cancel }: Props) =
 
   return (
     <form onSubmit={handleSubmit}>
-      <h1 className="font-arial text-2xl font-bold">{player.discordDisplayName}</h1>
+      <h1 className="font-arial text-2xl font-bold">
+        {player.discordDisplayName}
+      </h1>
       <h1 className="font-arial text-2xl font-bold">{player.discordId}</h1>
       <EditField
         value={player.balance}

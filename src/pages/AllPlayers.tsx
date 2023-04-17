@@ -1,12 +1,17 @@
 import { AxiosError } from "axios";
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import AuthContext from "../contexts/AuthContext";
-import { Player } from "../types";
 import { getAllPlayers } from "../services/playerService";
+import { Player } from "../types";
 
-import { GenericLoadingPage, PlayerCard, PageContainer, NavBar } from "../components";
+import {
+  GenericLoadingPage,
+  NavBar,
+  PageContainer,
+  PlayerCard,
+} from "../components";
 
 const AllPlayers = () => {
   const { token } = useContext(AuthContext);
@@ -47,7 +52,7 @@ const AllPlayers = () => {
   return (
     <PageContainer>
       <NavBar />
-      <div className="font-arial overflow-none grid p-12 text-white bg-zinc-800 rounded-xl m-auto border-2 border-red-500 min-w-fit min-h-fit grid-cols-1 overflow-y-scroll overflow-x-hidden gap-2 md:grid-cols-2 xl:grid-cols-3">
+      <div className="font-arial overflow-none grid p-12 text-white bg-zinc-900 rounded-xl m-auto border-2 border-red-500 min-w-fit min-h-fit grid-cols-1 overflow-y-scroll overflow-x-hidden gap-2 md:grid-cols-2 xl:grid-cols-3">
         {CardList}
       </div>
     </PageContainer>

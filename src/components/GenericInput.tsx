@@ -1,5 +1,3 @@
-
-
 interface Props {
   placeholder: string;
   value: string;
@@ -8,17 +6,23 @@ interface Props {
   disabled?: boolean;
 }
 
-const GenericInput = ({ placeholder, value, onChange, type = "text", disabled = false }: Props) => {
+const GenericInput = ({
+  placeholder,
+  value,
+  onChange,
+  type = "text",
+  disabled = false,
+}: Props) => {
   return (
     <input
       disabled={disabled}
-      className="m-3 p-3 rounded-xl border-2 border-gray-900 bg-neutral-800"
+      className="m-3 p-3 rounded-xl border-2 border-gray-900 bg-neutral-800 w-full max-w-xl"
       placeholder={placeholder}
       value={value}
       onChange={onChange}
       type={type}
-      />
-  )
+    />
+  );
 };
 
 export default GenericInput;

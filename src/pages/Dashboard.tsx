@@ -1,7 +1,7 @@
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { PageContainer, MainContent, GenericButton } from "../components";
+import { GenericButton, MainContent, PageContainer } from "../components";
 
 import AuthContext from "../contexts/AuthContext";
 
@@ -29,6 +29,9 @@ const Dashboard = () => {
           </GenericButton>
           <GenericButton name="/dashboard/player-editor" onClick={handleClick}>
             edit player
+          </GenericButton>
+          <GenericButton name="/dashboard/analytics" onClick={handleClick}>
+            show analytics
           </GenericButton>
         </div>
       </MainContent>

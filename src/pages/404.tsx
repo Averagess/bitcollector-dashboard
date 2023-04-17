@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { MainContent, PageContainer } from "../components"
+import { MainContent, PageContainer } from "../components";
 import AuthContext from "../contexts/AuthContext";
 
 const NotFoundPage = () => {

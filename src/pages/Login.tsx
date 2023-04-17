@@ -2,15 +2,14 @@ import { AxiosError } from "axios";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { login } from "../services/loginService";
 import AuthContext from "../contexts/AuthContext";
+import { login } from "../services/loginService";
 
 import {
-  PageContainer,
-  MainContent,
-  GenericInput,
   GenericButton,
-  NavBar,
+  GenericInput,
+  MainContent,
+  PageContainer,
 } from "../components";
 
 const Login = () => {
@@ -63,8 +62,7 @@ const Login = () => {
 
   return (
     <PageContainer>
-      <NavBar />
-      <MainContent>
+      <MainContent classes="my-auto">
         {loading ? (
           <h1 className="text-sky-400 self-center text-xl animate-pulse">
             Loading....
@@ -76,7 +74,10 @@ const Login = () => {
         ) : (
           <h1 className="self-center text-xl">Welcome back</h1>
         )}
-        <form className="flex flex-col p-12" onSubmit={handleLogin}>
+        <form
+          className="flex flex-col p-12 w-full items-center self-center"
+          onSubmit={handleLogin}
+        >
           <GenericInput
             disabled={loading}
             placeholder="username"
