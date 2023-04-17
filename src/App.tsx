@@ -8,8 +8,9 @@ import {
   Login,
   NotFoundPage,
   PlayerEditor,
-  PlayerProfile,
+  PlayerProfile
 } from "./pages";
+import Analytics from "./pages/Analytics";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: "/dashboard/all-players/:id",
     element: <PlayerProfile />,
+  },
+  {
+    path: "/dashboard/analytics",
+    element: <Analytics />,
   },
   {
     path: "*",
