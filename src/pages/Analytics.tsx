@@ -143,7 +143,7 @@ const Analytics = () => {
             >
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="createdAt" />
-              <YAxis />
+              <YAxis domain={["dataMin", "dataMax"]}/>
               <Tooltip content={<CustomToolTip />} />
               <Area
                 type="monotone"
