@@ -1,3 +1,4 @@
+import CustomToolTip from "./CustomToolTip";
 import EditField from "./EditField";
 import GenericButton from "./GenericButton";
 import GenericInput from "./GenericInput";
@@ -22,4 +23,5 @@ export {
   PlayerCard,
   PlayerProfileEditor,
   StatsContainer,
+  CustomToolTip,
 };
