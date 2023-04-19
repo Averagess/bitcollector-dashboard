@@ -7,16 +7,30 @@ const API_URL =
     ? "http://localhost:3000"
     : "http://3.73.209.127:8080";
 
-const getAnalytics = async (token: string, amount?: number) => {
+interface Query {
+  amount?: number;
+  after?: string;
+  before?: string;
+}
+
+const getAnalytics = async (token: string, query: Query) => {
   const headers = {
     Authorization: `Bearer ${token}`,
+  };
+
+  let url = `${API_URL}/api/analytics`;
+
+  if (query && Object.keys(query).length > 0) {
+    url += "?";
+    let i = 0;
+    for (const [key, value] of Object.entries(query)) {
+      if(i > 0 && value !== undefined) url += "&";
+      if(value !== undefined) url += `${key}=${value}`;
+      i++;
+    }
   }
-  const { data } =
-    amount && amount > 0
-      ? await axios.get<Analytic[]>(
-          `${API_URL}/api/analytics?amount=${amount}`, { headers }
-        )
-      : await axios.get<Analytic[]>(`${API_URL}/api/analytics`, { headers });
+
+  const { data } = await axios.get<Analytic[]>(url, { headers });
 
   return { data };
 };
