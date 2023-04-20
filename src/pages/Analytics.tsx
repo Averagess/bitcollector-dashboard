@@ -170,7 +170,7 @@ const Analytics = () => {
         <div className="w-full h-[600px] ">
           {analytics.length > 0 && (
             <>
-              <h1 className="text-purple-500">Servers the bot is in</h1>
+              <h1 className="text-cyan-500">Servers the bot is in</h1>
               <ResponsiveContainer height="50%">
                 <AreaChart
                   width={500}
@@ -190,13 +190,13 @@ const Analytics = () => {
                   <Area
                     type="monotone"
                     dataKey="guildAmount"
-                    stroke="#8884d8"
-                    fill="#8884d8"
+                    stroke="#808080"
+                    fill="rgba(94,220,224,1)"
                   />
                 </AreaChart>
               </ResponsiveContainer>
 
-              <h1 className="text-purple-500">
+              <h1 className="text-cyan-500">
                 Total amount of users the bot reaches
               </h1>
               <ResponsiveContainer height="50%">
@@ -218,8 +218,8 @@ const Analytics = () => {
                   <Area
                     type="monotone"
                     dataKey="userAmount"
-                    stroke="#8884d8"
-                    fill="#8884d8"
+                    stroke="#808080"
+                    fill="rgba(94,220,224,1)"
                   />
                 </AreaChart>
               </ResponsiveContainer>
